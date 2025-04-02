@@ -1,0 +1,12 @@
+def pirate(old_string):
+    new_s = ""
+    for i in range(len(old_string)):
+        if old_string[i] == "r":
+            new_s = new_s + "rrr"
+        else:
+            new_s = new_s + old_string[i]
+    return new_s
+
+john = input("Please enter a String to be pirated: ")
+newer_string = "Arr, matey, your string be '" + pirate(john) + "' "
+print(newer_string)
