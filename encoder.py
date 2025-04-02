@@ -22,22 +22,26 @@ def let_to_num(string):
     index = index + 1
   return ""
 def num_to_let(current_no):
-  current_no = int(current_no)
-  if current_no > 26:
-    new_current_no = current_no % 26
-  else:
-    new_current_no = current_no
-  print("the number " + str(current_no) + " currently translates to the divided # "+ str(new_current_no)+ " and the letter "+ chr(ord('a') + new_current_no - 1))
-  return chr(ord('a') + new_current_no - 1)
+  try:
+    current_no = int(current_no)
+    if current_no > 26:
+      new_current_no = current_no % 26
+    else:
+      new_current_no = current_no
+    print("the number " + str(current_no) + " currently translates to the divided # "+ str(new_current_no)+ " and the letter "+ chr(ord('a') + new_current_no - 1))
+    return chr(ord('a') + new_current_no - 1)
+  except ValueError:
+    return "//"
 
 def cipher(string):
   code = ''
   for a in string:
-    code = code + collatz_sequence(int(let_to_num(a)))
+    code = code + collatz_sequence(int(let_to_num(a))) + " // "
   return code
 def decipher(number_list):
   code = ''
-  for b in number_list:
+  for b in range(len(number_list)):
+    print("we are currently at Loop #" +str(b)+ " in the deciphering process")
     code = code + num_to_let(number_list[int(b)])
   return code
 
