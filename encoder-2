@@ -1,15 +1,24 @@
-def pirate(old_string):
-    old_string.lower()
+def quirkify(old_string):
+    old_string = old_string.lower()
     new_s = ""
     for i in range(len(old_string)):
         if old_string[i] == "s":
-		new_s = new_s + "?"
-	elif old_string[i] == "i":
-		new_s = new_s + "!"
+            new_s = new_s + "?"
+        elif old_string[i] == "i":
+            new_s = new_s + "!"
         else:
             new_s = new_s + old_string[i]
     return new_s
+def case_replace(old_string):
+    for i in range(len(old_string)-1):
+        if old_string[i] == "?" or "!":
+            if old_string[i+1] in "abcdefghijklmnopqrstuvwxyz":
+                uppercase = old_string[i+1].upper()
+                print(uppercase)
+                old_string = old_string.replace(old_string[i+1],uppercase)
+    return old_string
 
 john = input("Please enter a String to be changed: ")
-newer_string = pirate(john)
-print(newer_string)
+newer_string = quirkify(john)
+newest_string = case_replace(newer_string)
+print(newest_string)
