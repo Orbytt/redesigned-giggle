@@ -3,9 +3,9 @@ def pirate(old_string):
     new_s = ""
     for i in range(len(old_string)):
         if old_string[i] == "s":
-            new_s = new_s + "?"
-				elif old_string[i] == "i":
-						new_s = new_s + "!"
+		new_s = new_s + "?"
+	elif old_string[i] == "i":
+		new_s = new_s + "!"
         else:
             new_s = new_s + old_string[i]
     return new_s
